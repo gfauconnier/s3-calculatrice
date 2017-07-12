@@ -20,7 +20,6 @@ Array.from(opecl).forEach(function(element) {
   element.addEventListener('click', opeClick);
 });
 
-
 /**
  * numClick - when a number or '.' is clicked will do some checks (only one '.' for example) and then
  * will display the clicked button in p
@@ -37,4 +36,24 @@ function numClick() {
   }
   tempN[2] = "nb";
   affResult();
+}
+
+/**
+ * resetButton - resets global var and displays reseted affN in html
+ *
+ * @return {type}  no return only display 
+ */
+function resetButton() {
+  affN = 0;
+  tempN = ["", "", "nb"];
+  affResult();
+}
+
+/**
+ * affResult - displays affN in html (p)
+ *
+ * @return {type}  no return only display
+ */
+function affResult() {
+  document.getElementById("result").innerHTML = affN;
 }
