@@ -39,9 +39,25 @@ function numClick() {
 }
 
 /**
- * resetButton - resets global var and displays reseted affN in html
+ * cButton - when clicked checks if affN length is > 1 , if so removes last number, else displays 0
  *
  * @return {type}  no return only display 
+ */
+function cButton() {
+  if (affN.length > 1) {
+    affN = affN.split("");
+    affN.pop();
+    affN = affN.join("");
+  } else {
+    affN = "0";
+  }
+  affResult();
+}
+
+/**
+ * resetButton - resets global var and displays reseted affN in html
+ *
+ * @return {type}  no return only display
  */
 function resetButton() {
   affN = 0;
