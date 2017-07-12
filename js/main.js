@@ -38,10 +38,51 @@ function numClick() {
   affResult();
 }
 
+
+/**
+ * opeClick - check if there where already a number stocked in tempN, then if last button clicked if it's
+ * an operator, changes the tempN[1], else does the calculation
+ *
+ * @return {type}  no return only display
+ */
+function opeClick() {
+  if (tempN[0] == "") { // if tempN[0] is empty affects affN in it
+    tempN[0] = affN;
+    tempN[1] = this.innerHTML; // affects the operator in tempN[1]
+    affN = "0";
+    affResult();
+  }
+  else {
+    if (tempN[2] == "op") { // last clicked button was an operator : just changes the temp operator
+      tempN[1] = this.innerHTML;
+    }
+    else {
+      switch (tempN[1]) { // last clicked was a number : calculates depending on temp number and operator
+        case "+":
+          affN = parseFloat(tempN[0]) + parseFloat(affN);
+          break;
+        case "-":
+          affN = parseFloat(tempN[0]) - parseFloat(affN);
+          break;
+        case "*":
+          affN = parseFloat(tempN[0]) * parseFloat(affN);
+          break;
+        case "/":
+          affN = parseFloat(tempN[0]) / parseFloat(affN);
+          break;
+      }
+      tempN[0] = affN;
+      affResult();
+      tempN[1] = this.innerHTML;
+    }
+  }
+  tempN[2] = "op";
+}
+
 /**
  * cButton - when clicked checks if affN length is > 1 , if so removes last number, else displays 0
  *
- * @return {type}  no return only display 
+ * @return {type}  no return only display
  */
 function cButton() {
   if (affN.length > 1) {
