@@ -7,6 +7,7 @@ var tempN = ["", "", "nb"],
 document.getElementById("btnequ").addEventListener('click', equButton)
 document.getElementById("btnc").addEventListener('click', cButton);
 document.getElementById("btnreset").addEventListener('click', resetButton);
+document.getElementById("btnpm").addEventListener('click', pmButton);
 
 // add event for 'number' and '.' buttons
 var calcnumcl = document.getElementsByClassName("calcnum");
@@ -28,6 +29,7 @@ Array.from(opecl).forEach(function(element) {
  */
 function numClick() {
   var t = this.id;
+  console.log(t);
   if (tempN[2] == "nb") { // a 'number' button was last clicked the checks if only one '.' or if 0 is the first element : replaces it by a number, doesn't add another 0
     t != "btnpt" ? (affN == "0" && t == "0" ? affN = affN : (affN == "0" && t != "0" ? affN = t : affN += t)) : affN.split("").includes(".") ? affN = affN : affN += ".";
   }
@@ -89,16 +91,32 @@ function equButton() {
 }
 
 /**
+ * pmButton - changes the sign of the displayed number
+ *
+ * @return {type}  no return only display
+ */
+function pmButton() {
+  if (Number(affN) > 0){
+    affN = "-" + affN;
+  }
+  else if (Number(affN) < 0) {
+    affN = Math.abs(Number(affN));
+  }
+  affResult();
+}
+
+/**
  * cButton - when clicked checks if affN length is > 1 , if so removes last number, else displays 0
  *
  * @return {type}  no return only display
  */
 function cButton() {
-  if (affN.length > 1) {
+  if (affN.length > 1 && affN[0] != "-") {
     affN = affN.split("");
     affN.pop();
     affN = affN.join("");
-  } else {
+  }
+  else if ((affN.length == 2 && affN[0] == "-") || (affN.length == 1 && affN[0] != "-")){
     affN = "0";
   }
   affResult();
