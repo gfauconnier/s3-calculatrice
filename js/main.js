@@ -38,7 +38,6 @@ function numClick() {
   affResult();
 }
 
-
 /**
  * opeClick - check if there where already a number stocked in tempN, then if last button clicked if it's
  * an operator, changes the tempN[1], else does the calculation
@@ -77,6 +76,16 @@ function opeClick() {
     }
   }
   tempN[2] = "op";
+}
+
+/**
+ * equButton - launches opeClick function and changed last clicked type in tempN
+ *
+ * @return {type}  no return only display
+ */
+function equButton() {
+  tempN[2] = "nb";
+  opeClick();
 }
 
 /**
