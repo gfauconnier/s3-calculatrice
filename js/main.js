@@ -143,7 +143,11 @@ function affResult() {
   document.getElementById("result").innerHTML = affN;
 }
 
-
+/**
+ * nightButton - function that changes background color and font of result
+ *
+ * @return {type}  no return only display
+ */
 function nightButton(){
   document.getElementById("body").classList.toggle("night");
   document.getElementById("result").classList.toggle("night");
