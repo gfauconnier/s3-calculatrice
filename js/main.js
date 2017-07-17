@@ -112,7 +112,7 @@ function pmButton() {
  * @return {type}  no return only display
  */
 function cButton() {
-  if (affN.length > 1 && affN[0] != "-") {
+  if ((affN.length > 1 && affN[0] != "-") || (affN.length > 2 && affN[0] == "-")) {
     affN = affN.split("");
     affN.pop();
     affN = affN.join("");
