@@ -1,12 +1,38 @@
+@font-face {
+  font-family: digital7;
+  src: url(digital7.ttf);
+}
+
 button {
-  width: 10vw;
-  margin: 5px;
+  width: 20vw;
+  margin: 1vw;
 }
 
 p {
+  font-family: digital7;
+  font-size: 2rem;
   border: 1px solid black;
-  padding: 3px 6px;
+  padding: 0 10px;
   height: 50px;
-  width: 40vw;
-  margin: 5px;
+  width: 90vw;
+  margin: 1vw;
+}
+
+p.night {
+  border-color: white;
+  color: white;
+}
+
+body.night {
+  background-color: black;
+}
+
+@media (min-width: 768px) {
+  button {
+    width: 10vw;
+  }
+
+  p {
+    width: 47vw;
+  }
 }

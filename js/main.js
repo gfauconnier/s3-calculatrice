@@ -8,6 +8,7 @@ document.getElementById("btnequ").addEventListener('click', equButton)
 document.getElementById("btnc").addEventListener('click', cButton);
 document.getElementById("btnreset").addEventListener('click', resetButton);
 document.getElementById("btnpm").addEventListener('click', pmButton);
+document.getElementById("btnnight").addEventListener('click', nightButton);
 
 // add event for 'number' and '.' buttons
 var calcnumcl = document.getElementsByClassName("calcnum");
@@ -29,7 +30,7 @@ Array.from(opecl).forEach(function(element) {
  */
 function numClick() {
   var t = this.id;
-  console.log(t);
+
   if (tempN[2] == "nb") { // a 'number' button was last clicked the checks if only one '.' or if 0 is the first element : replaces it by a number, doesn't add another 0
     t != "btnpt" ? (affN == "0" && t == "0" ? affN = affN : (affN == "0" && t != "0" ? affN = t : affN += t)) : affN.split("").includes(".") ? affN = affN : affN += ".";
   }
@@ -140,4 +141,10 @@ function resetButton() {
  */
 function affResult() {
   document.getElementById("result").innerHTML = affN;
+}
+
+
+function nightButton(){
+  document.getElementById("body").classList.toggle("night");
+  document.getElementById("result").classList.toggle("night");
 }
